@@ -9,7 +9,7 @@ if (!isset($_GET['id'])) {
 $id_marche = intval($_GET['id']);
 
 // Récupérer les données du marché
-$sql = "SELECT * FROM marche WHERE id_Marche = $id_marche";
+$sql = "SELECT * FROM marche WHERE id_marche = $id_marche";
 $result = mysqli_query($connexion, $sql);
 if (!$result || mysqli_num_rows($result) == 0) {
     die("Marché introuvable !");
@@ -33,7 +33,7 @@ $executionVille = mysqli_query($connexion, $sql_villes);
     <h4 class="text-primary fw-bold mb-4">Modifier le marché</h4>
 
     <form action="tr_modifier_marche.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="id_marche" value="<?php echo $marche['id_Marche']; ?>">
+        <input type="hidden" name="id_marche" value="<?php echo $marche['id_marche']; ?>">
 
         <div class="mb-3">
             <label class="form-label fw-bold">Nom du marché</label>

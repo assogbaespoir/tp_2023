@@ -22,7 +22,7 @@ if (isset($_POST['id_marche'])) {
             $upload_path = "images/" . $new_image_name;
             if (move_uploaded_file($tmp_name, $upload_path)) {
                 // Supprimer ancienne image
-                $sql_old = "SELECT image FROM marche WHERE id_Marche = $id_marche";
+                $sql_old = "SELECT image FROM marche WHERE id_marche = $id_marche";
                 $res = mysqli_query($connexion, $sql_old);
                 $old = mysqli_fetch_assoc($res);
                 if (file_exists("images/".$old['image'])) unlink("images/".$old['image']);
@@ -41,7 +41,7 @@ if (isset($_POST['id_marche'])) {
             telephone='$telephone',
             id_ville='$id_ville'
             $update_image_sql
-            WHERE id_Marche=$id_marche";
+            WHERE id_marche=$id_marche";
 
     if (mysqli_query($connexion, $sql)) {
         header("Location: index.php?success=update");

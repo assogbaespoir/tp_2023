@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
     $id_marche = intval($_GET['id']);
 
     // Récupérer le nom de l'image pour la supprimer du dossier
-    $sql = "SELECT image FROM marche WHERE id_Marche = $id_marche";
+    $sql = "SELECT image FROM marche WHERE id_marche = $id_marche";
     $result = mysqli_query($connexion, $sql);
     if ($result && mysqli_num_rows($result) > 0) {
         $marche = mysqli_fetch_assoc($result);
@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
     }
 
     // Supprimer le marché
-    $sql = "DELETE FROM marche WHERE id_Marche = $id_marche";
+    $sql = "DELETE FROM marche WHERE id_marche = $id_marche";
     if (mysqli_query($connexion, $sql)) {
         header("Location: index.php?success=delete");
         exit();
